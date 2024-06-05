@@ -10,8 +10,21 @@ use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
 use Orchid\Support\Color;
 
+
 class PlatformProvider extends OrchidServiceProvider
 {
+
+    public function registerMainMenu(): array
+    {
+        return [
+        
+            Menu::make('Email sender')
+                ->icon('envelope-letter')
+                ->route('platform.email')
+                ->title('Tools')
+        ];
+    }
+
     /**
      * Bootstrap the application services.
      *
@@ -25,6 +38,8 @@ class PlatformProvider extends OrchidServiceProvider
 
         // ...
     }
+
+
 
     /**
      * Register the application menu.
